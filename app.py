@@ -6,13 +6,13 @@ import folium
 from streamlit_folium import folium_static
 
 # Caricamento dati
-eta_municipi = pd.read_excel("/mnt/data/Età media municipi.xlsx")
-municipi_percentuali = pd.read_excel("/mnt/data/Municipi con percentuali.xlsx")
-sezioni_percentuali = pd.read_excel("/mnt/data/Sezioni con percentuali.xlsx")
-astensione_municipi = pd.read_excel("/mnt/data/Astensione per municipio.xlsx")
-astensione_sezioni = pd.read_excel("/mnt/data/Astensione per sezione.xlsx")
-municipi_geo = gpd.read_file("/mnt/data/Municipi Genova.geojson")
-sezioni_geo = gpd.read_file("/mnt/data/precincts_genova_original.geojson")
+eta_municipi = pd.read_excel("data/Età media municipi.xlsx")
+municipi_percentuali = pd.read_excel("data/Municipi con percentuali.xlsx")
+sezioni_percentuali = pd.read_excel("data/Sezioni con percentuali.xlsx")
+astensione_municipi = pd.read_excel("data/Astensione per municipio.xlsx")
+astensione_sezioni = pd.read_excel("data/Astensione per sezione.xlsx")
+municipi_geo = gpd.read_file("data/Municipi Genova.geojson")
+sezioni_geo = gpd.read_file("data/precincts_genova_original.geojson")
 
 # Layout UI
 st.set_page_config(layout="wide", page_title="Dashboard Elettorale")
@@ -74,3 +74,4 @@ st.plotly_chart(fig_voti_sezioni)
 fig_astensione_sezioni = px.pie(astensione_sezioni, names='SEZIONE', values='Astenuti %',
                                 title='Percentuale Astensionismo per Sezione')
 st.plotly_chart(fig_astensione_sezioni)
+
